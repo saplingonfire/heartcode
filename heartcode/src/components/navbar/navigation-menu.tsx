@@ -5,7 +5,7 @@ import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, navigationMenuT
  
 export function NavigationBar() { 
     return ( 
-        <NavigationMenu className="list-none flex items-center justify-between h-16 sticky top-0 p-5 min-w-full"> 
+        <NavigationMenu className="list-none flex items-center justify-between h-16 sticky top-0 p-5 min-w-full  bg-white"> 
             <div className="flex flex-row space-x-4"> 
             <NavigationMenuItem> 
                 <Link href="/" legacyBehavior passHref> 
