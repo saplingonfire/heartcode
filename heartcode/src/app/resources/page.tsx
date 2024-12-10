@@ -23,19 +23,19 @@ const items = [
     title: "Teen Challenge",
     description: "For those struggling with drug/inhalant abuse, teenage gangsters, runaways, school-dropouts, delinquents, crisis counselling.",
     header: <Skeleton link="https://www.teenchallenge.org.sg/" image="https://i.guim.co.uk/img/media/6e92e1ce7306812f2c774bca57c31644aaa49986/0_259_4785_2871/master/4785.jpg?width=700&quality=85&auto=format&fit=max&s=810106a207039cbdc9247c6270941f96" />,
-    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "TOUCHline (Touch Community Services)",
     description: "Emotional support and practical advice are rendered through this youth helpline.",
     header: <Skeleton link="https://www.touch.org.sg/" image="https://media.licdn.com/dms/image/v2/C510BAQGqVQ2So17_cQ/company-logo_200_200/company-logo_200_200/0/1630572254705/touch_community_services_logo?e=2147483647&v=beta&t=qywnrxdewGxg6U3xrHTnat-hSxam4atIsVPimMOt5e8" />,
-    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "CHAT (Young People’s Minds Matter)",
     description: "Mental health checks and web-chat support for youths.",
     header: <Skeleton link="https://www.imh.com.sg/CHAT/About%20CHAT/Pages/default.aspx" image="https://media.licdn.com/dms/image/v2/D560BAQG0dPwl1snSzA/company-logo_200_200/company-logo_200_200/0/1716251236113/chat_sg_logo?e=2147483647&v=beta&t=FXnQFbcF9PPc8IGKLU4MceJyrC6JdHGXG46h5NZcrG0" />,
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "National Addictions Management Service",
@@ -47,19 +47,23 @@ const items = [
     title: "Singapore Anti-Narcotics Association",
     description: "Experience the thrill of bringing ideas to life.",
     header: <Skeleton link="https://www.sana.org.sg/" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF5mXqZHbF1nMHuGVDE3zGxWHmK0qDYfzIrOGH06_PnkaGpqAxyUiU9X-UnRM1kVx0z-Y&usqp=CAU" />,
-    icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "WE CARE Community Services Ltd",
     description: "Embark on exciting journeys and thrilling discoveries.",
     header: <Skeleton link="https://www.wecare.org.sg/" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3YyB8nDD8ZMnbRxT4C2GaM_4-48T7V35TnuAQrfMfjgQTVi2JnH4diYyVMsFo6lvLNPQ&usqp=CAU" />,
-    icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
+    icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
   },
 ];
 
 export default function Resources() {
   return (
-    <BentoGrid className="max-w-4xl mx-auto">
+    <>
+   <div className="text-center text-3xl font-bold">
+    Resources
+    </div>
+    <BentoGrid className="max-w-4xl mx-auto h-fit">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
@@ -71,5 +75,6 @@ export default function Resources() {
         />
       ))}
     </BentoGrid>
+    </>
   );
 }
