@@ -49,7 +49,7 @@ export default function Home() {
            <CardTitle>
              My dream
           </CardTitle>
-           i want to have a good education which require good school-go out work and earn money-ones stable income go play the stock market
+           Is to be able to have a stable income to allow to enjoy myelf with my family member
         </CardHeader>
         
       </Card>
