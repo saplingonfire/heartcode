@@ -22,7 +22,7 @@ const items = [
   {
     title: "Teen Challenge",
     description: "For those struggling with drug/inhalant abuse, teenage gangsters, runaways, school-dropouts, delinquents, crisis counselling.",
-    header: <Skeleton link="https://www.teenchallenge.org.sg/" image="https://i.guim.co.uk/img/media/6e92e1ce7306812f2c774bca57c31644aaa49986/0_259_4785_2871/master/4785.jpg?width=700&quality=85&auto=format&fit=max&s=810106a207039cbdc9247c6270941f96" />,
+    header: <Skeleton link="https://www.teenchallenge.org.sg/" image="https://yt3.ggpht.com/a/AATXAJzoUMuGBn7QiYSMUKwOBOLWRY7gtojOdhPYEEZ9=s900-c-k-c0xffffffff-no-rj-mo" />,
     icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
   },
   {
@@ -52,7 +52,7 @@ const items = [
   {
     title: "WE CARE Community Services Ltd",
     description: "Embark on exciting journeys and thrilling discoveries.",
-    header: <Skeleton link="https://www.wecare.org.sg/" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3YyB8nDD8ZMnbRxT4C2GaM_4-48T7V35TnuAQrfMfjgQTVi2JnH4diYyVMsFo6lvLNPQ&usqp=CAU" />,
+    header: <Skeleton link="https://www.wecare.org.sg/" image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKwNWBI_L73fiMNBmZpEm447N5gOURSzgw3w&s" />,
     icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
   },
 ];
@@ -63,6 +63,9 @@ export default function Resources() {
    <div className="text-center text-3xl font-bold">
     Resources
     </div>
+    <p className="text-center text-1xl font-semibold">
+    Click to find out more on the organisations below
+    </p>
     <BentoGrid className="max-w-4xl mx-auto h-fit">
       {items.map((item, i) => (
         <BentoGridItem
