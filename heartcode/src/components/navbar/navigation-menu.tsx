@@ -1,6 +1,6 @@
 import Link from "next/link"; 
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle } from "../ui/navigation-menu"; 
-// import { ModeToggle } from "../mode-toggle"; 
+import { ModeToggle } from "../modetoggle/mode-toggle"; 
 // import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"; 
  
 export function NavigationBar() { 
@@ -37,13 +37,7 @@ export function NavigationBar() {
             </NavigationMenuItem> 
             </div> 
             <div className="flex gap-4"> 
-                {/* <ModeToggle/> 
-                <SignedIn> 
-                    <UserButton/> 
-                </SignedIn> 
-                <SignedOut> 
-                    <SignInButton/> 
-                </SignedOut>  */}
+                <ModeToggle /> 
             </div> 
         </NavigationMenu> 
     ) 
