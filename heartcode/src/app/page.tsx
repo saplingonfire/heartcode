@@ -6,14 +6,13 @@ import ShinyButton from "@/components/ui/shiny-button";
 import { Divide } from "lucide-react";
 
 export default function Home() {
-  const words: string[] = ["stimulant","opioid","Analgesics","Gamma-hydroxybutyrate","Party drugs","Hallucinogen","Synthetic drugs","Central nervous system depressants (benzos)","Prescription drugs"]
+  const words: string[] = ["stimulants","opioids","analgesics","gamma-hydroxybutyrate","party drugs","hallucinogens","synthetic drugs","benzodiazepines","prescription drugs"]
   const stringofwords: string[] = ["Consequences of doing drugs in Singapore","Consequences of taking drugs in Singapore","Consequences of bringing drugs into Singapore"]
   const videos = [    
     { id: 'y5A4sbCSuhQ', title: 'Down the Rabbit Hole'},
-    { id: 'cMujhh2Hhgc', title: 'Being closely monitor '},
-    { id: 'GL1JdIeoo4A', title: 'deadly war'},
+    { id: 'cMujhh2Hhgc', title: 'Drugs Being Closely Monitored'},
+    { id: 'GL1JdIeoo4A', title: 'Deadly War on Drugs'},
   ];  
-
 
   // State to track the current video index  
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -30,10 +29,10 @@ export default function Home() {
     <div> 
       <div className=""> 
         <div className="flex flex-col justify-center h-dvh">   
-          <h1 className="font-bold text-5xl text-center"> Don't try 
+          <h1 className="font-bold text-5xl text-center"> Don't misuse 
             <FlipWords words={words}/> 
           </h1> <br/> 
-          <p className="text-sm text-center animate-bounce"> IT HAVE NEAGTIVE IMPACT ON YOU AND CAN LAST FOR LONG  </p> 
+          <p className="text-sm text-center animate-bounce"> THEY HAVE NEAGTIVE IMPACTS ON YOU AND LAST LONG  </p> 
         </div> 
       </div>
 
@@ -44,26 +43,26 @@ export default function Home() {
           <table className="border border-transparent bg-transparent w-full max-w-4xl mt-4"> 
             <tbody> 
               <tr> 
-                <td className="font-bold py-2 px-4 border-b text-white">Consequences for taking drug in singapore</td> 
+                <td className="font-bold py-2 px-4 border-b text-white">Consequences for taking drugs in singapore</td> 
                 <td className="py-2 px-4 border-b text-white"> 
                   <span className="font-bold text-white"> 
-                  Consumption of a controlled drug is an offence and a person may face imprisonment of a minimum of 1 year and up to 10 years, or a fine not exceeding S$20,000 or both.
+                  Consumption of controlled drugs is an offence. If found guily, one may face imprisonment of a minimum of 1 year and up to 10 years, or a fine not exceeding S$20,000 or both.
                   </span> 
                 </td> 
               </tr> 
               <tr> 
-                <td className="font-bold py-2 px-4 border-b text-white">How it affect our body</td> 
+                <td className="font-bold py-2 px-4 border-b text-white">How drugs affect our physical body</td> 
                 <td className="py-2 px-4 border-b text-white"> 
                   <span className="font-bold text-white"> 
-                  People with addiction often have one or more associated health issues, which could include lung or heart disease, stroke, cancer, or mental health conditions. Imaging scans, chest X-rays, and blood tests can show the damaging effects of long-term drug use throughout the body
-                  </span> 
+                  People with addictions often have one or more associated health issues, which could include heart diseases, stroke, or cancer. The damaging effects of long-term drug use can be shown through imaging scans, chest X-rays, and blood tests.
+                  </span>
                 </td> 
               </tr> 
               <tr> 
-                <td className="font-bold py-2 px-4 border-transparent text-white">How do drugs affect our mental health</td> 
+                <td className="font-bold py-2 px-4 border-transparent text-white">How drugs affect our mental health</td> 
                 <td className="spy-2 px-4 border-transparent text-white"> 
                   <span className="font-bold text-white"> 
-                  Mood swings, despession, Feeling irritable, Paranoia,Insomnia, Hallucination, Anxiety, Confusion, Impaired judgement
+                  Drugs may cause or worsen mood swings, despession, paranoia, insomnia, hallucinations, anxieties and more
                   </span> 
                   <br />  
                 </td> 
@@ -137,7 +136,7 @@ export default function Home() {
         <strong> WE CARE Community Services </strong><br /> 
         Tel: 3165 8017 (Mondays to Fridays. Voicemail after hours, 10 am - 7 pm)<br /><br /> 
  
-        <em>If you wish to report any information, please call the Central Narcotics Bureau (CNB) hotline at 1800 325 6666*.</em> 
+        <em>If you are inneed drug-related assistance, please call the Central Narcotics Bureau (CNB) hotline at 1800 325 6666*.</em> 
         </p> 
       </div>
 
