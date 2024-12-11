@@ -1,15 +1,19 @@
 "use client";
 import { FlipWords } from "@/components/ui/flip-words";
 import { useState } from 'react';
+import RippleButton from "@/components/ui/ripple-button";
+import ShinyButton from "@/components/ui/shiny-button";
+import { Divide } from "lucide-react";
 
 export default function Home() {
   const words: string[] = ["stimulant","opioid","Analgesics","Gamma-hydroxybutyrate","Party drugs","Hallucinogen","Synthetic drugs","Central nervous system depressants (benzos)","Prescription drugs"]
   const stringofwords: string[] = ["Consequences of doing drugs in Singapore","Consequences of taking drugs in Singapore","Consequences of bringing drugs into Singapore"]
   const videos = [    
-    { id: '3tMcX3jh5I4', title: 'Last Days' },
-    { id: 'nU-7qA9xNlA', title: 'Unattended' }, 
-    { id: 'c0WRBbFe668', title: 'Teaching Video on Anti-Drug Abuse' }
+    { id: 'y5A4sbCSuhQ', title: 'Down the Rabbit Hole'},
+    { id: 'cMujhh2Hhgc', title: 'Being closely monitor '},
+    { id: 'GL1JdIeoo4A', title: 'deadly war'},
   ];  
+
 
   // State to track the current video index  
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -37,51 +41,47 @@ export default function Home() {
         <p className="font-bold text-white text-left text-3xl mb-4">
             <FlipWords words = {stringofwords} className="text-white" />
         </p> 
-          <table className="border border-gray-300 bg-gray-200 w-full max-w-4xl mt-4"> 
+          <table className="border border-transparent bg-transparent w-full max-w-4xl mt-4"> 
             <tbody> 
               <tr> 
-                <td className="font-bold py-2 px-4 border-b text-black">Cannabis</td> 
-                <td className="py-2 px-4 border-b text-black"> 
-                  <span className="font-bold text-black"> 
-                    Marijuana, Pot, Grass, Joints, Ganja, Hashish, Weed 
+                <td className="font-bold py-2 px-4 border-b text-white">Consequences for taking drug in singapore</td> 
+                <td className="py-2 px-4 border-b text-white"> 
+                  <span className="font-bold text-white"> 
+                  Consumption of a controlled drug is an offence and a person may face imprisonment of a minimum of 1 year and up to 10 years, or a fine not exceeding S$20,000 or both.
                   </span> 
-                  <br /> 
-                  It contains THC (tetrahydrocannabinol) which affect one’s mood – causing euphoria, and also anxiety, disorientation or paranoia. 
-                  Cannabis can affect concentration and memory which weakens the abuser’s ability to learn. 
                 </td> 
               </tr> 
               <tr> 
-                <td className="font-bold py-2 px-4 border-b text-black">Heroin</td> 
-                <td className="py-2 px-4 border-b text-black"> 
-                  <span className="font-bold text-black"> 
-                    White, Smack, Junk, Powder, Putih, Medicine, Ubat 
+                <td className="font-bold py-2 px-4 border-b text-white">How it affect our body</td> 
+                <td className="py-2 px-4 border-b text-white"> 
+                  <span className="font-bold text-white"> 
+                  People with addiction often have one or more associated health issues, which could include lung or heart disease, stroke, cancer, or mental health conditions. Imaging scans, chest X-rays, and blood tests can show the damaging effects of long-term drug use throughout the body
                   </span> 
-                  <br /> 
-                  Heroin abusers feel dull and tired very easily. They cannot work properly as they are not able to concentrate. 
                 </td> 
               </tr> 
               <tr> 
-                <td className="font-bold py-2 px-4 border-b text-black">Methamphetamine</td> 
-                <td className="py-2 px-4 border-b text-black"> 
-                  <span className="font-bold text-black"> 
-                  'Ice', Glass, Crystal, Speed, 'Quartz', 'Ice Cream', 'Hirropon', 'Ya ba', Shabu or Syabu. 
+                <td className="font-bold py-2 px-4 border-transparent text-white">How do drugs affect our mental health</td> 
+                <td className="spy-2 px-4 border-transparent text-white"> 
+                  <span className="font-bold text-white"> 
+                  Mood swings, despession, Feeling irritable, Paranoia,Insomnia, Hallucination, Anxiety, Confusion, Impaired judgement
                   </span> 
-                  <br /> 
-                  Methamphetamine is highly addictive and is a strong stimulant. It has a very strong effect on the central nervous system. 
-                </td> 
-              </tr> 
-              <tr> 
-                <td className="font-bold py-2 px-4 border-b text-black">NPS</td> 
-                <td className="spy-2 px-4 border-b text-black"> 
-                  <span className="font-bold text-black"> 
-                  Spice, K2, Bath Salts, Kronic, Bromo-Dragonfly, Mushroom, Synthetic Weed 
-                  </span> 
-                  <br /> 
-                  NPS abuse can lead to severe intoxications, severe toxic reaction leading to death, hallucinations, paranoia, seizures 
+                  <br />  
                 </td> 
               </tr> 
             </tbody> 
           </table> 
+
+  <br></br>     
+  <br></br>   
+          
+<div>
+<a href="https://www.cnb.gov.sg/docs/default-source/educational-resources-documents/pde-info-kit-faq.pdf" >
+        <ShinyButton className="bg-blue-400">Learn More</ShinyButton>
+        </a>
+
+</div>
+
+
       </div>
 
       {/* New Video Section */} 
@@ -133,6 +133,9 @@ export default function Home() {
  
         <strong>National Addictions Management Services (NAMS)</strong><br /> 
         Tel: 6732 6837 (Mon-Sun inclusive of PHs, 8am – 11pm)<br /><br /> 
+
+        <strong> WE CARE Community Services </strong><br /> 
+        Tel: 3165 8017 (Mondays to Fridays. Voicemail after hours, 10 am - 7 pm)<br /><br /> 
  
         <em>If you wish to report any information, please call the Central Narcotics Bureau (CNB) hotline at 1800 325 6666*.</em> 
         </p> 
