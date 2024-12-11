@@ -9,11 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< Updated upstream
     "@hookform/resolvers": "^3.9.1",
-=======
     "@clerk/nextjs": "^6.9.0",
->>>>>>> Stashed changes
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-dropdown-menu": "^2.1.2",
@@ -32,11 +29,8 @@
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-<<<<<<< Updated upstream
     "react-hook-form": "^7.54.0",
-=======
     "recharts": "^2.14.1",
->>>>>>> Stashed changes
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.1"

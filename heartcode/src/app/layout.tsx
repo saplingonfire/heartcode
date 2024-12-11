@@ -2,18 +2,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css"; 
 import { NavigationBar } from "@/components/navbar/navigation-menu";
-<<<<<<< Updated upstream
 import { ThemeProvider } from "@/components/modetoggle/theme-provider";
-=======
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
 } from '@clerk/nextjs'
 import './globals.css'
->>>>>>> Stashed changes
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -51,7 +44,6 @@ export default function RootLayout({
 
         <NavigationBar/>                   
           {children}
-          
         </ThemeProvider>  
       </body>
     </html>
