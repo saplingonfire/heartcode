@@ -1,11 +1,6 @@
 "use client"
 import { useState, useEffect, useRef } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import useInterval from '@use-it/interval'
-
-import { HeadComponent as Head } from '@/components/Head'
 import { Button } from "@/components/ui/button"
-import { px } from 'framer-motion'
 
 type Apple = {
   x: number
@@ -17,18 +12,25 @@ type Velocity = {
   dy: number
 }
 
+type SnakePart = {
+  x: number
+  y: number
+}
+
+type Snake = {
+  head: { x: number; y: number }
+  trail: SnakePart[]
+}
+
 export default function SnakeGame() {
-  // Canvas Settings
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const canvasWidth = 1000
   const canvasHeight = 600
   const canvasGridSize = 40
 
-  // Game Settings
   const minGameSpeed = 10
   const maxGameSpeed = 15
 
-  // Game State
   const [gameDelay, setGameDelay] = useState<number>(1000 / minGameSpeed)
   const [countDown, setCountDown] = useState<number>(4)
   const [running, setRunning] = useState(false)
@@ -36,10 +38,7 @@ export default function SnakeGame() {
   const [highscore, setHighscore] = useState(0)
   const [newHighscore, setNewHighscore] = useState(false)
   const [score, setScore] = useState(0)
-  const [snake, setSnake] = useState<{
-    head: { x: number; y: number }
-    trail: Array<any>
-  }>({
+  const [snake, setSnake] = useState<Snake>({
     head: { x: 12, y: 9 },
     trail: [],
   })
@@ -56,7 +55,6 @@ export default function SnakeGame() {
   const generateApplePosition = (): Apple => {
     const x = Math.floor(Math.random() * (canvasWidth / canvasGridSize))
     const y = Math.floor(Math.random() * (canvasHeight / canvasGridSize))
-    // Check if random position interferes with snake head or trail
     if (
       (snake.head.x === x && snake.head.y === y) ||
       snake.trail.some((snakePart) => snakePart.x === x && snakePart.y === y)
@@ -66,7 +64,6 @@ export default function SnakeGame() {
     return { x, y }
   }
 
-  // Initialise state and start countdown
   const startGame = () => {
     setGameDelay(1000 / minGameSpeed)
     setIsLost(false)
@@ -80,11 +77,10 @@ export default function SnakeGame() {
     setRunning(true)
     setNewHighscore(false)
     setCountDown(3)
-    const music=document.getElementById("music")
-    music.play() 
+    const music = document.getElementById("music") as HTMLAudioElement | null
+    music?.play()
   }
 
-  // Reset state and check for highscore
   const gameOver = () => {
     if (score > highscore) {
       setHighscore(score)
@@ -95,8 +91,8 @@ export default function SnakeGame() {
     setRunning(false)
     setVelocity({ dx: 0, dy: 0 })
     setCountDown(4)
-    const music=document.getElementById("music")
-    music.load() 
+    const music = document.getElementById("music") as HTMLAudioElement | null
+    music?.load()
   }
 
   const fillRect = (
@@ -109,21 +105,11 @@ export default function SnakeGame() {
     ctx.fillRect(x, y, w, h)
   }
 
-  const strokeRect = (
-    ctx: CanvasRenderingContext2D,
-    x: number,
-    y: number,
-    w: number,
-    h: number
-  ) => {
-    ctx.strokeRect(x + 0.5, y + 0.5, w, h)
-  }
-
   const drawSnake = (ctx: CanvasRenderingContext2D) => {
-        const img = document.createElement("img");
-        img.src = "policeman.png";
-        const pat = ctx.createPattern(img , "repeat")
-        ctx.fillStyle = pat;    
+    const img = document.createElement("img")
+    img.src = "policeman.png"
+    const pat = ctx.createPattern(img, "repeat")
+    if (pat) ctx.fillStyle = pat
 
     fillRect(
       ctx,
@@ -133,7 +119,6 @@ export default function SnakeGame() {
       canvasGridSize
     )
 
-
     snake.trail.forEach((snakePart) => {
       fillRect(
         ctx,
@@ -142,16 +127,14 @@ export default function SnakeGame() {
         canvasGridSize,
         canvasGridSize
       )
-
-     
     })
   }
 
   const drawApple = (ctx: CanvasRenderingContext2D) => {
-    const img = document.createElement("img");
-    img.src = "pill.png";
-    const pat = ctx.createPattern(img , "repeat")
-    ctx.fillStyle = pat;
+    const img = document.createElement("img")
+    img.src = "pill.png"
+    const pat = ctx.createPattern(img, "repeat")
+    if (pat) ctx.fillStyle = pat
 
     if (
       apple &&
@@ -168,9 +151,7 @@ export default function SnakeGame() {
     }
   }
 
-  // Update snake.head, snake.trail and apple positions. Check for collisions.
   const updateSnake = () => {
-    // Check for collision with walls
     const nextHeadPosition = {
       x: snake.head.x + velocity.dx,
       y: snake.head.y + velocity.dy,
@@ -182,28 +163,27 @@ export default function SnakeGame() {
       nextHeadPosition.y >= canvasHeight / canvasGridSize
     ) {
       gameOver()
+      return
     }
 
-    // Check for collision with apple
     if (nextHeadPosition.x === apple.x && nextHeadPosition.y === apple.y) {
       setScore((prevScore) => prevScore + 1)
       setApple(generateApplePosition())
     }
 
     const updatedSnakeTrail = [...snake.trail, { ...snake.head }]
-    // Remove trail history beyond snake trail length (score + 2)
     while (updatedSnakeTrail.length > score + 2) updatedSnakeTrail.shift()
-    // Check for snake colliding with itsself
     if (
       updatedSnakeTrail.some(
         (snakePart) =>
           snakePart.x === nextHeadPosition.x &&
           snakePart.y === nextHeadPosition.y
       )
-    )
+    ) {
       gameOver()
+      return
+    }
 
-    // Update state
     setPreviousVelocity({ ...velocity })
     setSnake({
       head: { ...nextHeadPosition },
@@ -211,7 +191,6 @@ export default function SnakeGame() {
     })
   }
 
-  // Game Hook
   useEffect(() => {
     const canvas = canvasRef?.current
     const ctx = canvas?.getContext('2d')
@@ -223,41 +202,20 @@ export default function SnakeGame() {
     }
   }, [snake])
 
-  // Game Update Interval
-  useInterval(
-    () => {
-      if (!isLost) {
-        updateSnake()
-      }
-    },
-    running && countDown === 0 ? gameDelay : null
-  )
-
-  // Countdown Interval
-  useInterval(
-    () => {
-      setCountDown((prevCountDown) => prevCountDown - 1)
-    },
-    countDown > 0 && countDown < 4 ? 800 : null
-  )
-
-  // DidMount Hook for Highscore
   useEffect(() => {
     setHighscore(
       localStorage.getItem('highscore')
-        ? parseInt(localStorage.getItem('highscore')!)
+        ? parseInt(localStorage.getItem('highscore')!, 10)
         : 0
     )
   }, [])
 
-  // Score Hook: increase game speed starting at 16
   useEffect(() => {
     if (score > minGameSpeed && score <= maxGameSpeed) {
       setGameDelay(1000 / score)
     }
   }, [score])
 
-  // Event Listener: Key Presses
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (
@@ -276,37 +234,25 @@ export default function SnakeGame() {
 
         switch (e.key) {
           case 'ArrowRight':
-            velocity = { dx: 1, dy: 0 }
-            break
-          case 'ArrowLeft':
-            velocity = { dx: -1, dy: 0 }
-            break
-          case 'ArrowDown':
-            velocity = { dx: 0, dy: 1 }
-            break
-          case 'ArrowUp':
-            velocity = { dx: 0, dy: -1 }
-            break
           case 'd':
             velocity = { dx: 1, dy: 0 }
             break
+          case 'ArrowLeft':
           case 'a':
             velocity = { dx: -1, dy: 0 }
             break
+          case 'ArrowDown':
           case 's':
             velocity = { dx: 0, dy: 1 }
             break
+          case 'ArrowUp':
           case 'w':
             velocity = { dx: 0, dy: -1 }
             break
-          default:
-            console.error('Error with handleKeyDown')
         }
         if (
-          !(
-            previousVelocity.dx + velocity.dx === 0 &&
-            previousVelocity.dy + velocity.dy === 0
-          )
+          !(previousVelocity.dx + velocity.dx === 0 &&
+            previousVelocity.dy + velocity.dy === 0)
         ) {
           setVelocity(velocity)
         }
@@ -321,49 +267,39 @@ export default function SnakeGame() {
 
   return (
     <>
-      <Head />
       <main>
         <audio id="music" src="Moosic.mp3"></audio>
-        <canvas className='border-4 border-gray mx-auto'
+        <canvas
+          className='border-4 border-gray mx-auto'
           ref={canvasRef}
           width={canvasWidth + 1}
           height={canvasHeight + 1}
         />
-        <div className='text-center flex  justify-around w-[1000px] mx-auto p-4'>
-            <p>
-              {/* <FontAwesomeIcon icon={['fas', 'star']} /> */}
-              Score: {score}
-            </p>
-            <p>
-              {/* <FontAwesomeIcon icon={['fas', 'trophy']} /> */}
-              Highscore: {highscore > score ? highscore : score}
-            </p>
+        <div className='text-center flex justify-around w-[1000px] mx-auto p-4'>
+          <p>Score: {score}</p>
+          <p>Highscore: {highscore > score ? highscore : score}</p>
           {!isLost && countDown > 0 ? (
             <Button variant="outline" onClick={startGame}>
               {countDown === 4 ? 'Start Game' : countDown}
-              </Button>
-          ) : (<></>)}
-            {isLost && (
-          <div className="game-overlay flex justify-between w-1/2">
-            <p className="large">Game Over</p>
-            <p className="final-score">
-              {newHighscore ? `🎉 New Highscore 🎉` : `You scored: ${score}`}
-            </p>
-            {!running && isLost && (
-              <Button variant="outline" onClick={startGame}>
-                {countDown === 4 ? 'Restart Game' : countDown}
+            </Button>
+          ) : null}
+          {isLost && (
+            <div className="game-overlay flex justify-between w-1/2">
+              <p className="large">Game Over</p>
+              <p className="final-score">
+                {newHighscore ? `🎉 New Highscore 🎉` : `You scored: ${score}`}
+              </p>
+              {!running && isLost && (
+                <Button variant="outline" onClick={startGame}>
+                  Restart Game
                 </Button>
-            )}
-          </div>
-        )}
+              )}
+            </div>
+          )}
         </div>
       </main>
       <footer className='text-center'>
-        Copyright &copy; <a href="https://mueller.dev">Marc Müller</a> 2022
-        &nbsp;|&nbsp;{' '}
-        <a href="https://github.com/marcmll/next-snake">
-          {/* <FontAwesomeIcon icon={['fab', 'github']} /> Github */}
-        </a>
+        Copyright &copy; Marc Müller 2022
       </footer>
     </>
   )
