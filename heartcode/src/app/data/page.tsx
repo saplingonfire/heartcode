@@ -20,6 +20,7 @@ import {
 
 import { Button } from "@/components/ui/button"
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import DrugAbuseTicker from '@/components/drug-abuse-ticker'
 
 const chartData = [
     { year: "2023", drug_abusers: 3122, fill: "var(--color-2023)" },
@@ -81,6 +82,45 @@ const chartConfig = {
 export default function Data() {
     return(
     <div>
+      <div className="flex h-fit m-8">
+            <div className=" w-1/2 h-auto m-8 text-center content-center">
+                <h1 className="text-center font-bold text-4xl">
+                     Drug abuse affects everyone worldwide
+                </h1>
+                <p className="text-center text-2xl font-light">
+                    Taking the lives of millions
+                </p>
+                <p className="m-10 font-semibold text-center text-5xl">
+                    This counter serves as a reminder 
+                </p>
+                <p className="font-medium text-center text-2xl">
+                    Of the ongoing impact and the urgent need for prevention, treatment and support
+                </p>
+            </div>
+
+            <div className=" w-1/2 h-fit m-8 drop-shadow-2xl">
+            <Card>
+                <CardHeader>
+                    <CardTitle>Death Count</CardTitle>
+                    <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <DrugAbuseTicker></DrugAbuseTicker>
+                </CardContent>
+                <CardFooter>
+                    <div className="flex w-full items-start gap-2 text-sm">
+                    <div className="grid gap-2">
+                        <div className="flex items-center gap-2 font-medium leading-none">
+                        
+                        </div>
+                        <div className="flex items-center gap-2 leading-none text-muted-foreground">
+                        </div>
+                    </div>
+                    </div>
+                </CardFooter>
+                </Card>
+            </div>
+        </div>  
         <div className="flex mt-12 m-8 items-stretch p-8 drop-shadow-2xl">
             <div className="w-1/2  min-h-full">
             <Card className="flex flex-col h-full">
