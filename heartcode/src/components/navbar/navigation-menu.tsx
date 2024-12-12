@@ -43,6 +43,13 @@ export function NavigationBar() {
                     </NavigationMenuLink> 
                 </Link> 
             </NavigationMenuItem> 
+            <NavigationMenuItem> 
+                <Link href="/game" legacyBehavior passHref> 
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}> 
+                        Game
+                    </NavigationMenuLink> 
+                </Link> 
+            </NavigationMenuItem> 
             </div> 
             <div className="flex gap-4"> 
                 <ModeToggle /> 

@@ -36,10 +36,10 @@ export default function AboutMe() {
     },
   ];
   return (
-    <div className="flex flex-col mx-auto items-center justify-center bg-gray-50 p-4">
+    <div className="flex flex-col mx-auto items-center justify-center p-4">
       <TypewriterEffectSmooth words={words}/>
       <Card className="border-black border-4 bg-[url(https://img.freepik.com/free-vector/beautiful-white-cloud-blue-sky-background_1035-23406.jpg)] bg-cover w-1/2 m-8">
-        <CardHeader>
+        <CardHeader className="text-black">
         <img src="https://png.pngtree.com/thumb_back/fh260/background/20240522/pngtree-abstract-cloudy-background-beautiful-natural-streaks-of-sky-and-clouds-red-image_15684333.jpg"
             className="w-24 h-24 rounded-full mb-4 object-cover border-4 border-black"/>
           <CardTitle >
@@ -51,9 +51,9 @@ export default function AboutMe() {
           
 
           <CardTitle>
-            Hobby
+            Hobby 
           </CardTitle>
-          I like cooking and play aLL sports 
+          I like cooking and play all sports 
 
           <CardTitle>
              Current education
@@ -75,13 +75,13 @@ export default function AboutMe() {
       <AvatarImage src="https://www.freeiconspng.com/thumbs/baby-shark-png/baby-shark-png-transparent-background-1.png" alt="@shadcn" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
-    <CardHeader>
+    <CardHeader className="text-black">
       <CardTitle className="text-4xl">About me</CardTitle>
       <CardDescription className="text-2xl text-medium">My name is Zhi Ying and I'm a Sec 3 student this year.</CardDescription>
     </CardHeader>
     <CardContent>
       
-        <div className="grid w-full items-center gap-4">
+        <div className="grid w-full items-center gap-4 text-black">
           <div className="flex flex-col space-y-1.5">
           <Label className="text-3xl text-semibold" htmlFor="name">Hobbies</Label>
           <CardDescription className="text-2xl text-medium">I like to listen to music and play games :)</CardDescription>
