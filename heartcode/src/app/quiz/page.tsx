@@ -53,8 +53,14 @@ export default function Quiz() {
   }
  
   return ( 
-    <div className="p-6 max-w-xl mx-auto bg-gray shadow-md rounded-lg"> 
-      <h2 className="text-2xl font-semibold text-center mb-6">Drug Awareness Quiz</h2> 
+    <div
+      className="p-6 max-w-xl mx-auto shadow-md rounded-lg"
+      style={{
+        backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4cFk_px7G-tT1FP5sSG9l01tvibuHCwPMVw&s')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}>
+      <h2 className="text-2xl font-semibold text-center mb-6 text-white">Drug Awareness Quiz</h2> 
       <Form {...form}> 
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6"> 
           <FormField 
@@ -62,12 +68,12 @@ export default function Quiz() {
             name="name" 
             render={({ field }) => ( 
               <FormItem> 
-                <FormLabel>Name</FormLabel> 
-                <FormDescription>Please enter your name.</FormDescription> 
+                <FormLabel className="text-white">Name</FormLabel> 
+                <FormDescription className="text-white">Please enter your name.</FormDescription> 
                 <FormControl> 
-                  <Input placeholder="Your name here" {...field} /> 
+                  <Input placeholder="Your name here" {...field} className="text-white"/> 
                 </FormControl> 
-                <FormMessage /> 
+                <FormMessage className="text-white"/> 
               </FormItem> 
             )} 
           /> 
@@ -76,12 +82,12 @@ export default function Quiz() {
             name="question2" 
             render={({ field }) => ( 
               <FormItem> 
-                <FormLabel>Are you familiar with the drug law in SG?</FormLabel> 
-                <FormDescription>Please choose your answer.</FormDescription> 
+                <FormLabel className="text-white">Are you familiar with the drug law in SG?</FormLabel> 
+                <FormDescription className="text-white">Please choose your answer.</FormDescription> 
                 <Select onValueChange={field.onChange} defaultValue={field.value}> 
                   <FormControl> 
                     <SelectTrigger> 
-                      <SelectValue placeholder="Select an answer" /> 
+                      <SelectValue placeholder="Select an answer" className="text-white"/> 
                     </SelectTrigger> 
                   </FormControl> 
                   <SelectContent> 
@@ -89,7 +95,7 @@ export default function Quiz() {
                     <SelectItem value="no">No</SelectItem> 
                   </SelectContent> 
                 </Select> 
-                <FormMessage /> 
+                <FormMessage className="text-white"/> 
               </FormItem> 
             )} 
           /> 
@@ -98,12 +104,12 @@ export default function Quiz() {
             name="question3" 
             render={({ field }) => ( 
             <FormItem> 
-            <FormLabel>Do you consume drugs and why?</FormLabel> 
-            <FormDescription>Please answer.</FormDescription> 
+            <FormLabel className="text-white">Do you consume drugs and why?</FormLabel> 
+            <FormDescription className="text-white">Please answer.</FormDescription> 
             <FormControl> 
-              <Input placeholder="Type your answer here" {...field} /> 
+              <Input placeholder="Type your answer here" {...field} className="text-white"/> 
             </FormControl> 
-            <FormMessage /> 
+            <FormMessage className="text-white"/> 
             </FormItem> 
             )} 
           /> 
@@ -112,12 +118,12 @@ export default function Quiz() {
             name="question4" 
             render={({ field }) => ( 
               <FormItem> 
-                <FormLabel>Do you need help to quit?</FormLabel> 
-                <FormDescription>Please select an answer.</FormDescription> 
+                <FormLabel className="text-white">Do you need help to quit?</FormLabel> 
+                <FormDescription className="text-white">Please select an answer.</FormDescription> 
                 <Select onValueChange={field.onChange} defaultValue={field.value}> 
                   <FormControl> 
                     <SelectTrigger> 
-                      <SelectValue placeholder="Select an answer" /> 
+                      <SelectValue placeholder="Select an answer" className="text-white"/> 
                     </SelectTrigger> 
                   </FormControl> 
                   <SelectContent> 
@@ -125,7 +131,7 @@ export default function Quiz() {
                     <SelectItem value="no">No</SelectItem> 
                   </SelectContent> 
                 </Select> 
-                <FormMessage /> 
+                <FormMessage className="text-white"/> 
               </FormItem> 
             )} 
           /> 
@@ -134,18 +140,18 @@ export default function Quiz() {
             name="question5"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>
+                <FormLabel className="text-white">
                   What are the consequences when you do drug in SG
                 </FormLabel>
-                <FormDescription>Select one or more options.</FormDescription>
-                <div className="space-y-2">
+                <FormDescription className="text-white">Select one or more options.</FormDescription>
+                <div className="space-y-2 text-white" >
                   {[
                     { value: "a", label: "Nothing will happen" },
                     { value: "b", label: "Fine $20,000" },
                     { value: "c", label: "Jail up to 10 years" },
                   ].map((option) => (
                     <div key={option.value} className="flex items-center space-x-2">
-                      <Checkbox
+                      <Checkbox 
                         checked={field.value.includes(option.value)}
                         onCheckedChange={(checked) => {
                           if (checked) {
@@ -154,12 +160,13 @@ export default function Quiz() {
                             field.onChange(field.value.filter((v) => v !== option.value));
                           }
                         }}
+                        className="w-5 h-5 border-2 border-white bg-white checked:bg-white checked:border-white focus:ring focus:ring-white"
                       />
-                      <label htmlFor={option.value}>{option.label}</label>
+                      <label htmlFor={option.value} className="text-white">{option.label}</label>
                     </div>
                   ))}
                 </div>
-                <FormMessage />
+                <FormMessage className="text-white"/>
               </FormItem>
             )}
           />
