@@ -9,7 +9,7 @@ import {
   IconTableColumn,
 } from "@tabler/icons-react";
 
-export const Skeleton = ({ image, link }: { image?: string, link?: string }) => (
+const Skeleton = ({ image, link }: { image?: string, link?: string }) => (
   <a href={link}>
     <div
       className="flex flex-1 w-full h-44 min-h-[6rem] rounded-xl bg-cover bg-center border"
