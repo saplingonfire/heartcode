@@ -45,25 +45,25 @@ export default function AboutMe() {
           <CardTitle >
             Who i am
           </CardTitle>
-          I am Wei Cong i value teamwork and communication<br></br>          
+          I am Wei Cong. I value teamwork and communication<br></br>          
         
-          one thing i hate the most is when people who have bad attuide and refuse to change
+          One thing I hate the most is when people have bad attuide and refuse to change
           
 
           <CardTitle>
             Hobby
           </CardTitle>
-          i like cooking and play any sport 
+          I like cooking and play aLL sports 
 
           <CardTitle>
              Current education
           </CardTitle>
-           i am from FPS(graudate 2021)-JYSS(graduate 2025)-
+           I am from FPS(graudate 2021)-JYSS(graduate 2025)
            
            <CardTitle>
              My dream
           </CardTitle>
-           Is to be able to have a stable income to allow to enjoy myelf with my family member
+           To be able to have a stable income to allow myself to enjoy with my family
         </CardHeader>
         <CardFooter className="flex justify-between">
       <Button variant="outline">Nice</Button>
@@ -77,14 +77,14 @@ export default function AboutMe() {
     </Avatar>
     <CardHeader>
       <CardTitle className="text-4xl">About me</CardTitle>
-      <CardDescription className="text-2xl">My name is Zhi Ying and I'm a Sec 3 student this year.</CardDescription>
+      <CardDescription className="text-2xl text-medium">My name is Zhi Ying and I'm a Sec 3 student this year.</CardDescription>
     </CardHeader>
     <CardContent>
       
         <div className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
-          <Label className="text-3xl" htmlFor="name">Hobbies</Label>
-          <CardDescription className="text-2xl">I like to listen to music and play games :)</CardDescription>
+          <Label className="text-3xl text-semibold" htmlFor="name">Hobbies</Label>
+          <CardDescription className="text-2xl text-medium">I like to listen to music and play games :)</CardDescription>
           <Carousel className="w-72 h-72 mx-auto">
             <CarouselContent>
               <CarouselItem> <a href="https://www.youtube.com/@Ado1024"> <img src="https://i.guim.co.uk/img/media/ea6401919663c8b4f8b12893039c140f40d55db7/2198_1669_4690_2814/master/4690.png?width=1200&height=1200&quality=85&auto=format&fit=crop&s=73fae3b2723739648aa20774674095f1" className="rounded-[24px]" alt=""/> </a> </CarouselItem>
@@ -96,8 +96,8 @@ export default function AboutMe() {
           </Carousel>
           </div>
           <div className="flex flex-col space-y-1.5">
-          <Label className="text-3xl" htmlFor="name">Family</Label>
-          <CardDescription className="text-2xl">I have two older brothers who are currently working!</CardDescription>
+          <Label className="text-3xl text-semibold" htmlFor="name">Family</Label>
+          <CardDescription className="text-2xl text-medium">I have two older brothers!</CardDescription>
           </div>
         </div>
     </CardContent>

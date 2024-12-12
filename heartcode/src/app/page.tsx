@@ -6,7 +6,7 @@ import ShinyButton from "@/components/ui/shiny-button";
 import { Divide } from "lucide-react";
 
 export default function Home() {
-  const words: string[] = ["stimulants","opioids","analgesics","gamma-hydroxybutyrate","party drugs","hallucinogens","synthetic drugs","benzodiazepines","prescription drugs"]
+  const words: string[] = ["Stimulants","Opioids","Analgesics","Gamma-hydroxybutyrate","Party Drugs","Hallucinogens","Synthetic drugs","Benzodiazepines","Prescription Drugs"]
   const stringofwords: string[] = ["Consequences of doing drugs in Singapore","Consequences of taking drugs in Singapore","Consequences of bringing drugs into Singapore"]
   const videos = [    
     { id: 'y5A4sbCSuhQ', title: 'Down the Rabbit Hole'},
