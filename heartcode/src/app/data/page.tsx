@@ -156,7 +156,7 @@ export default function Data() {
                 <p className="font-medium text-center text-3xl">
                     Refer to the Resources page for more information
                 </p>
-                <Button variant="outline" className="font-mono text-2xl mt-4"> <a href="http://localhost:3000/resources">
+                <Button variant="outline" className="font-mono text-2xl mt-4"> <a href="/resources">
                   To Resources
                   </a> </Button>
             </div>
