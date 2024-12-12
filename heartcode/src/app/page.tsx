@@ -3,7 +3,7 @@ import { FlipWords } from "@/components/ui/flip-words";
 import { useState } from 'react';
 import RippleButton from "@/components/ui/ripple-button";
 import ShinyButton from "@/components/ui/shiny-button";
-import { Divide } from "lucide-react";
+import { Bold, Divide } from "lucide-react";
 
 export default function Home() {
   const words: string[] = ["Stimulants","Opioids","Analgesics","Gamma-hydroxybutyrate","Party Drugs","Hallucinogens","Synthetic Drugs","Benzodiazepines","Prescription Drugs"]
@@ -13,6 +13,17 @@ export default function Home() {
     { id: 'cMujhh2Hhgc', title: 'Drugs Being Closely Monitored'},
     { id: 'GL1JdIeoo4A', title: 'Deadly War on Drugs'},
   ];  
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Function to open and close the popup
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeForm = () => {
+    setIsOpen(false);  // Closes the popup
+  };
 
   // State to track the current video index  
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -73,15 +84,15 @@ export default function Home() {
             </tbody> 
           </table> 
 
-  <br></br>     
-  <br></br>   
+        <br></br>     
+        <br></br>   
           
-<div>
-<a href="https://www.cnb.gov.sg/docs/default-source/educational-resources-documents/pde-info-kit-faq.pdf" >
-        <ShinyButton className="bg-blue-400">Learn More</ShinyButton>
-        </a>
+      <div>
+      <a href="https://www.cnb.gov.sg/docs/default-source/educational-resources-documents/pde-info-kit-faq.pdf" >
+              <ShinyButton className="bg-blue-400">Learn More</ShinyButton>
+              </a>
 
-</div>
+      </div>
 
 
       </div>
@@ -142,7 +153,172 @@ export default function Home() {
         <em>If you are inneed drug-related assistance, please call the Central Narcotics Bureau (CNB) hotline at 1800 325 6666*.</em> 
         </p> 
       </div>
+      <footer
+        style={{
+          backgroundColor: "#f1f1f1", 
+          padding: "20px", 
+          textAlign: "center", 
+        }}
+      >
 
+      <button onClick={togglePopup} className="open-popup-btn">
+      Need help? Let us know!
+      </button> <br></br><br></br>
+
+      {isOpen && (
+        <div className="popup-overlay">
+          <div className="popup-content">
+            <button onClick={togglePopup} className="close-popup-btn">
+              X
+            </button>
+            <h2><strong>Need help? Let us know!</strong></h2>
+            <form>
+              <div>
+                <label htmlFor="name">Name: </label>
+                <input type="text" id="name" name="name" className="outlined-input"/>
+              </div>
+              <div>
+                <label htmlFor="email">Email: </label>
+                <input type="email" id="email" name="email" className="outlined-input"/>
+              </div>
+              <div>
+                <label htmlFor="subject">Subject: </label>
+                <input type="text" id="subject" name="subject" className="outlined-input"/>
+              </div>
+              {/* Dummy Submit Button */}
+              <button
+                type="button"
+                className="submit-btn"
+                onClick={() => alert('Form Submitted!')}
+              >
+                Submit
+              </button>
+            </form>
+            <button type="button" className="close-btn" onClick={closeForm}>
+              X
+            </button>
+          </div>
+        </div>
+      )}
+
+      <style jsx>{`
+        .outlined-input {
+          width: 100%;
+          padding: 10px;
+          border: 2px solid #ccc;  /* Adds an outline/border to the input */
+          border-radius: 5px;  /* Optional: Adds rounded corners */
+          margin-bottom: 10px;  /* Adds space between inputs */
+          box-sizing: border-box;  /* Ensures padding doesn't overflow the input box */
+          transition: border-color 0.3s ease;  /* Smooth transition when focus changes */
+        }
+
+        .outlined-input:focus {
+          border-color: #6200ea;  /* Changes border color on focus */
+          outline: none;  /* Removes default outline when focused */
+        }
+        .open-popup-btn {
+          background-color: #6200ea;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          cursor: pointer;
+          font-weight: bold;
+        }
+
+        .popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .popup-content {
+        position: relative;
+          background: white;
+          padding: 20px;
+          border-radius: 8px;
+          width: 300px;
+          text-align: center;
+        }
+
+        .close-popup-btn {
+          background-color: transparent;
+          color: white;
+          border: none;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
+
+        .submit-btn {
+          background-color: #6200ea;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+
+        .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: transparent;
+        color: black;
+        border: none;
+        cursor: pointer;
+        font-size: 20px; 
+            }
+      `}</style>
+
+        <p style={{ color: 'blue' }}>Author: Heartcode 9</p>
+        <p>
+          <a href="mailto:heartcode@gmail.com" style={{ color: 'blue' }}>heartcode9@gmail.com</a>
+        </p>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            alert("Thanks for subscribing!");
+          }}
+          style={{ marginTop: "20px" }}
+        >
+
+          <label htmlFor="subscribe-input" style={{ display: "block", marginBottom: "10px", color: 'blue' }}>
+            Enter your email to subscribe:
+          </label>
+          <input
+            type="email"
+            id="subscribe-input"
+            placeholder="Enter your email"
+            style={{
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              marginRight: "10px",
+            }}
+            required
+          />
+          <button
+            type="submit"
+            style={{
+              padding: "10px 20px",
+              backgroundColor: "#007bff",
+              color: "white",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+            }}
+          >
+            Subscribe
+          </button>
+        </form>
+      </footer>
       </div>
 
   );
