@@ -16,16 +16,16 @@ export function NavigationBar() {
                 </Link> 
             </NavigationMenuItem> 
             <NavigationMenuItem> 
-                <Link href="/quiz" legacyBehavior passHref> 
+                <Link href="/aboutus" legacyBehavior passHref> 
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}> 
-                        Quiz 
+                        About Us 
                     </NavigationMenuLink> 
                 </Link> 
             </NavigationMenuItem> 
             <NavigationMenuItem> 
-                <Link href="/aboutus" legacyBehavior passHref> 
+                <Link href="/data" legacyBehavior passHref> 
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}> 
-                        About Us 
+                        Data
                     </NavigationMenuLink> 
                 </Link> 
             </NavigationMenuItem> 
@@ -37,9 +37,9 @@ export function NavigationBar() {
                 </Link> 
             </NavigationMenuItem> 
             <NavigationMenuItem> 
-                <Link href="/data" legacyBehavior passHref> 
+                <Link href="/quiz" legacyBehavior passHref> 
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}> 
-                        Data
+                        Quiz 
                     </NavigationMenuLink> 
                 </Link> 
             </NavigationMenuItem> 
