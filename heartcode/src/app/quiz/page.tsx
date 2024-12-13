@@ -190,7 +190,7 @@ export default function Quiz() {
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md">
             <h3 className="text-lg font-semibold mb-4">Your Answers</h3>
             {submittedData && (
-            <div className="mt-6 p-4 bg-blue-100 rounded-md">
+            <div className="mt-6 p-4 bg-blue-100 text-blue-900 rounded-md">
               <p>Hi {submittedData.name},</p> <br></br>
               <p>
                 The correct answer for question 5 is 
