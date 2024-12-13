@@ -53,13 +53,22 @@ export default function Quiz() {
   }
  
   return ( 
+    // <div
+    //   className="p-6 max-w-xl mx-auto shadow-md rounded-lg"
+    //   style={{
+    //     backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4cFk_px7G-tT1FP5sSG9l01tvibuHCwPMVw&s')",
+    //     backgroundSize: "cover",
+    //     backgroundPosition: "center",
+    //   }}>
     <div
-      className="p-6 max-w-xl mx-auto shadow-md rounded-lg"
-      style={{
-        backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4cFk_px7G-tT1FP5sSG9l01tvibuHCwPMVw&s')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}>
+        className="p-6 max-w-xl mx-auto shadow-md rounded-lg"
+        style={{
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4cFk_px7G-tT1FP5sSG9l01tvibuHCwPMVw&s')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          color: "white", // Ensure content is readable
+        }}
+      >
       <h2 className="text-2xl font-semibold text-center mb-6 text-white">Drug Awareness Quiz</h2> 
       <Form {...form}> 
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6"> 
